@@ -22,14 +22,11 @@
       padding: 20px;
     }
 
-    .card {
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      padding: 40px;
-      max-width: 450px;
+    .container {
+      display: flex;
+      gap: 30px;
+      max-width: 900px;
       width: 100%;
-      text-align: center;
       animation: fadeIn 0.6s ease-out;
     }
 
@@ -43,6 +40,15 @@
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      width: 380px;
+      text-align: center;
     }
 
     .avatar {
@@ -126,54 +132,339 @@
       filter: grayscale(0%);
     }
 
-    footer {
+    .card footer {
       margin-top: 30px;
       padding-top: 20px;
       border-top: 1px solid #eee;
       color: #999;
       font-size: 14px;
     }
+
+    .tabs-container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #eee;
+      background: #f8f9fa;
+      border-radius: 20px 20px 0 0;
+    }
+
+    .tab {
+      padding: 20px 30px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 16px;
+      font-weight: 500;
+      color: #666;
+      transition: all 0.3s ease;
+      position: relative;
+      outline: none;
+    }
+
+    .tab.active {
+      color: #667eea;
+    }
+
+    .tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 3px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 2px;
+    }
+
+    .tab:hover:not(.active) {
+      color: #333;
+      background: rgba(102, 126, 234, 0.1);
+    }
+
+    .tab-content {
+      padding: 30px;
+      flex: 1;
+      display: none;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-content h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .tab-content p {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      padding: 8px 16px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .project-item {
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .project-item:hover {
+      background: #e9ecef;
+      transform: translateX(5px);
+    }
+
+    .project-item h3 {
+      color: #333;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .project-item p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .project-tag {
+      padding: 4px 10px;
+      background: #e4e8ec;
+      color: #555;
+      border-radius: 10px;
+      font-size: 12px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #e4e8ec;
+      border-radius: 12px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form button {
+      padding: 15px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .card {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <div class="card">
-    <div class="avatar">L</div>
-    <h1>Hello 大家好</h1>
-    <p class="title">我是 lan Hz</p>
-    <p class="bio">很高兴你来到这里！这是我的个人主页，你可以通过以下链接找到我。</p>
+  <div class="container">
+    <div class="card">
+      <div class="avatar">L</div>
+      <h1>Hello 大家好</h1>
+      <p class="title">我是 Lan Hz</p>
+      <p class="bio">很高兴你来到这里！这是我的个人主页，你可以通过以下链接找到我。</p>
 
-    <ul class="social-links">
-      <li>
-        <a href="https://github.com/lan-hz" target="_blank" rel="noopener noreferrer">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@5.2.0/icons/github.svg" alt="GitHub">
-          GitHub
-        </a>
-      </li>
-      <li>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@5.2.0/icons/twitter.svg" alt="Twitter">
-          Twitter
-        </a>
-      </li>
-      <li>
-        <a href="mailto:your@email.com" target="_blank" rel="noopener noreferrer">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@5.2.0/icons/email.svg" alt="Email">
-          邮箱联系
-        </a>
-      </li>
-      <li>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-          <img src="https://cdn.jsdelivr.net/npm/simple-icons@5.2.0/icons/linkedin.svg" alt="LinkedIn">
-          LinkedIn
-        </a>
-      </li>
-    </ul>
+      <ul class="social-links">
+        <li>
+          <a href="https://github.com/lan-hz" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@5.2.0/icons/github.svg" alt="GitHub">
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@5.2.0/icons/twitter.svg" alt="Twitter">
+            Twitter
+          </a>
+        </li>
+        <li>
+          <a href="mailto:your@email.com" target="_blank" rel="noopener noreferrer">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@5.2.0/icons/email.svg" alt="Email">
+            邮箱联系
+          </a>
+        </li>
+      </ul>
 
-    <footer>
-      <p>&copy; 2024 Lan Hz. All rights reserved.</p>
-    </footer>
+      <footer>
+        <p>&copy; 2024 Lan Hz. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <div class="tabs-container">
+      <div class="tabs">
+        <button class="tab active" data-tab="about">关于我</button>
+        <button class="tab" data-tab="skills">技能</button>
+        <button class="tab" data-tab="projects">项目</button>
+        <button class="tab" data-tab="contact">联系</button>
+      </div>
+
+      <div id="about" class="tab-content active">
+        <h2>关于我</h2>
+        <p>我是一名热爱编程的开发者，专注于创造优雅的数字体验。</p>
+        <p>拥有多年的软件开发经验，热衷于学习新技术，追求卓越的代码质量。</p>
+        <p>在工作中，我注重团队协作，善于沟通，能够快速适应不同的项目需求。</p>
+      </div>
+
+      <div id="skills" class="tab-content">
+        <h2>技能</h2>
+        <p>以下是我熟练掌握的技术栈：</p>
+        <div class="skills">
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Vue</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">HTML/CSS</span>
+          <span class="skill-tag">Git</span>
+        </div>
+      </div>
+
+      <div id="projects" class="tab-content">
+        <h2>项目</h2>
+        <div class="projects">
+          <div class="project-item">
+            <h3>个人博客系统</h3>
+            <p>基于 Vue.js 开发的现代化博客平台，支持 Markdown 编辑和代码高亮。</p>
+            <div class="project-tags">
+              <span class="project-tag">Vue</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">MongoDB</span>
+            </div>
+          </div>
+          <div class="project-item">
+            <h3>任务管理工具</h3>
+            <p>轻量级任务管理应用，支持任务分类、优先级排序和进度追踪。</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Redux</span>
+              <span class="project-tag">Firebase</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="contact" class="tab-content">
+        <h2>联系我</h2>
+        <form class="contact-form">
+          <input type="text" placeholder="您的姓名" required>
+          <input type="email" placeholder="您的邮箱" required>
+          <textarea placeholder="留言内容..." required></textarea>
+          <button type="submit">发送消息</button>
+        </form>
+      </div>
+    </div>
   </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tabId = tab.dataset.tab;
+
+        tabs.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        tab.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+
+    const form = document.querySelector('.contact-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('感谢您的留言！我会尽快回复您。');
+      form.reset();
+    });
+  </script>
 </body>
 
 </html>
